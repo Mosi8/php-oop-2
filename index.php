@@ -19,10 +19,10 @@
     ];
 
     $spettacoli = [
-        new Spettacolo($film[0], "1 marzo 2022", [date("20:00"), date("23:00")], $sale[0]),
-        new Spettacolo($film[1], "1 marzo 2022", [date("16:30"), date("20:00"), date("23:30")], $sale[1]),
-        new Spettacolo($film[2], "1 marzo 2022", [date("18:00"), date("21:00"), date("23:30")], $sale[2]),
-        new Spettacolo($film[3], "1 marzo 2022", [date("16:00"), date("19:00"), date("22:00")], $sale[3])
+        new Spettacolo($film[0], "1 marzo 2022", ["20:00", "23:00"], $sale[0]),
+        new Spettacolo($film[1], "1 marzo 2022", ["16:30", "20:00", "23:30"], $sale[1]),
+        new Spettacolo($film[2], "1 marzo 2022", ["18:00", "21:00", "23:30"], $sale[2]),
+        new Spettacolo($film[3], "1 marzo 2022", ["16:00", "19:00", "22:00"], $sale[3])
     ];
 
     // 1) Recupera l’elenco delle sale con relative informazioni, facendo particolare attenzione alle informazioni aggiuntive per le sale immersive.
