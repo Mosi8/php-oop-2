@@ -13,4 +13,8 @@ class Sala {
         return "{$this->id} {$this->posti}";
     }
 
+    public function getPosti(){
+        return $this->posti;
+    }
+
 }

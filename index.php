@@ -19,14 +19,54 @@
     ];
 
     $spettacoli = [
-        new Spettacolo($film[0], "1 marzo 2022", "17:00, 20:00, 23:00", $sale[0]),
-        new Spettacolo($film[1], "1 marzo 2022", "16:30, 20:00, 23:30", $sale[1]),
-        new Spettacolo($film[2], "1 marzo 2022", "18:00, 21:00, 23:30", $sale[2]),
-        new Spettacolo($film[3], "1 marzo 2022", "16:00, 19:00, 22:00", $sale[3])
+        new Spettacolo($film[0], "1 marzo 2022", [date("20:00"), date("23:00")], $sale[0]),
+        new Spettacolo($film[1], "1 marzo 2022", [date("16:30"), date("20:00"), date("23:30")], $sale[1]),
+        new Spettacolo($film[2], "1 marzo 2022", [date("18:00"), date("21:00"), date("23:30")], $sale[2]),
+        new Spettacolo($film[3], "1 marzo 2022", [date("16:00"), date("19:00"), date("22:00")], $sale[3])
     ];
 
+    // 1) Recupera l’elenco delle sale con relative informazioni, facendo particolare attenzione alle informazioni aggiuntive per le sale immersive.
+    var_dump($sale);
 
-    var_dump($spettacoli);
+
+    // 2) Recuperare la capienza totale del cinema considerando tutte le sale a disposizione.
+    $capacita = 0;
+    foreach ($sale as $value) {
+        $capacita += $value -> getPosti();
+    }
+    
+    var_dump($capacita);
+    
+
+    //3) Stabilito un giorno e un film, recuperare quante proiezioni totali di quel film ci saranno.
+    $numSpettacoli = 0;
+    $giorno = "1 marzo 2022";
+    $pellicola = $film[1];
+
+    foreach($spettacoli as $value){
+        if(($giorno == $value->getData()) && ($pellicola == $value ->getTitolo())){
+            $numSpettacoli = $value->getOra();
+        }
+    };
+    var_dump(count($numSpettacoli));
+
+    //4) Stabilito un giorno, recupera l’orario di fine dell’ultimo spettacolo.
+
+    $giorno = "1 marzo 2022";
+    $ultimoSpettacolo = 0;
+
+    foreach($spettacoli as $value){
+        if($giorno == $value->getData()){
+           if (end($value->getOra())>= $ultimoSpettacolo) {
+                $ultimoSpettacolo = end($value->getOra());
+           }
+        }
+    };
+
+    var_dump($ultimoSpettacolo);
+
+
+
 
 
     

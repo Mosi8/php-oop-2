@@ -3,7 +3,7 @@
 
     protected $film;
     protected $date;
-    protected $orari;
+    protected $orari = [];
     protected $sala;
     
     public function __construct($_film, $_date, $_orari, $_sala) {
@@ -11,5 +11,16 @@
       $this->date = $_date;
       $this->orari = $_orari;
       $this->sala = $_sala;
+    }
+
+    public function getData(){
+      return $this->date;
+    }
+    public function getOra(){
+      return $this->orari;
+    }
+
+    public function getTitolo(){
+      return $this->film;
     }
   }
